@@ -1,0 +1,27 @@
+// Font
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+// Brand colors
+$bluetiful: #0066ff;
+$blue-ryb: #0043e1;
+$st-patricks-blue: #01257b;
+$jet: #323230;
+$earie-black: #1d1d1b;
+$space-cadet: #203050;
+$space-cadet-cont: #283b60;
+$white: #fff;
+$white-ter: #f5f5f5;
+
+// Update Bulma's global variables
+// font variables
+$family-sans-serif: "IBM Plex Sans", sans-serif;
+// color variables
+$primary: $bluetiful;
+$info: $blue-ryb;
+$dark: $space-cadet-cont;
+$grey: $jet;
+$black: $earie-black;
+$text-strong: $white;
+$text: $white-ter;
+// custom variables
+$image-pading: 5px;

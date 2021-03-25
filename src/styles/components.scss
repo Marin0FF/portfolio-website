@@ -1,0 +1,35 @@
+// Hero Content
+.hero-content {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+}
+.primary-cta .icon {
+    transition: transform 0.3s ease-out;
+}
+.primary-cta:hover .icon {
+    transform: rotate(90deg);
+}
+// Section title
+.section {
+    hr {
+        @include center-x;
+        height: 3px;
+        margin-bottom: 0;
+        width: 80px;
+        background-color: $primary;
+    }
+}
+// Profile picture
+.profilePicture {
+    @include center-x;
+    height: 320px + $image-pading;
+    width: 320px + $image-pading;
+    img {
+        padding: $image-pading;
+        border-radius: 50%;
+        border: $image-pading solid $primary;
+    }
+}
+// Contact section
