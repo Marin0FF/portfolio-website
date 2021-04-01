@@ -6,7 +6,7 @@
     align-items: center;
 }
 .primary-cta .icon {
-    transition: transform 0.3s ease-out;
+    transition: transform $duration $easing;
 }
 .primary-cta:hover .icon {
     transform: rotate(90deg);
@@ -32,4 +32,30 @@
         border: $image-pading solid $primary;
     }
 }
-// Contact section
+@include mobile {
+    .profilePicture {
+        height: 75vw;
+        width: 75vw;
+    }
+}
+// contact link
+.contact-link {
+    &:hover {
+        button {
+            transition: $duration/2 $easing;
+            background-color: darken($white, 10%);
+            border-color: darken($white, 10%);
+            span {
+                color: darken($primary, 5%) !important;
+            }
+        }
+    }
+}
+
+//footer
+.back-to-top:hover .icon {
+    animation-duration: 0.4s;
+    animation-iteration-count: 2;
+    animation-timing-function: ease-in-out;
+    animation-name: scroll-top;
+}

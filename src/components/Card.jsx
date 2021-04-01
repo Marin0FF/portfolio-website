@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Card = () => (
+const Card = ({text}) => (
     <div className="column is-half-tablet is-one-quarter-widescreen">
         <div className="card">
             <div className="card-image">
@@ -11,10 +11,7 @@ const Card = () => (
             <div className="card-content has-background-primary">
                 <p className="title is-5">Example Project</p>
                 <p className="subtitle is-6 mb-3">Subtitle</p>
-                <p className="has-text-white mb-1">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus nec iaculis mauris.
-                </p>
+                <p className="has-text-white mb-1">{text}</p>
                 <time dateTime="2016-1-1" className="is-size-7 has-text-white">Posted on 21 March 2021</time>
             </div>
         </div>  

@@ -1,8 +1,13 @@
 @charset "utf-8";
 // App Styles Imports
 @import "/src/styles/variables.scss";
-@import "/src/styles/mixins";
+// Bulma Mixins
+@import "bulma/sass/utilities/mixins";
+// App Styles Imports
+@import "/src/styles/variables.scss";
+@import "/src/styles/_mixins";
 @import "/src/styles/global.scss";
 @import "/src/styles/components.scss";
+@import "/src/styles/_animations.scss";
 // Bulma Imports
 @import "../node_modules/bulma/bulma.sass";

@@ -4,11 +4,11 @@ import HeroContent from './HeroContent'
 // Make sure window.THREE is defined, e.g. by including three.min.js in the document head using a <script> tag
  
 const HeroSection = () => {
-  const [vantaEffect, setVantaEffect] = useState(0);
+  const [vantaEffect] = useState(0);
   const myRef = useRef(null);
   useEffect(() => {
     if (!vantaEffect) {
-      const effect = setVantaEffect(HALO({
+      const effect = HALO({
         el: myRef.current,
         forceAnimate: true,
         baseColor: 0x22,
@@ -17,7 +17,15 @@ const HeroSection = () => {
         minWidth: window.innerWidth,
         xOffset: 0.2,
         size: 1.2,
-      }))
+      })
+      window.addEventListener('resize', () => {
+        console.log(window.innerWidth);
+        effect.setOptions({
+          minHeight: window.innerHeight,
+          minWidth: window.innerWidth,
+        })
+        effect.resize();
+      })
     }
     return () => {
       if (vantaEffect) vantaEffect.destroy()
