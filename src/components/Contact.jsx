@@ -15,7 +15,7 @@ const ContactSection = ({id}) => {
             }`)
             .then((data) => setContact(data[0]))
             .catch(console.error);
-    });
+    }, []);
 
     const socialsClone = {...contacts.socials};
 

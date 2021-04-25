@@ -43,7 +43,7 @@ const Modal = () => {
             }`).then((data) => setModal(data[0]))
             .catch(console.error);
         }
-    })
+    }, [modal.isOpen, slug])
 
     const close = useCallback(() => {
         setModal({isOpen: false});

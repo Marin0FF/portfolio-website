@@ -24,7 +24,7 @@ const ProjectSection = ({id}) => {
             }`)
             .then((data) => setProject(data))
             .catch(console.error);
-    });
+    }, []);
 
     return (
         <div id="projects" >
