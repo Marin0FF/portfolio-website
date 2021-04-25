@@ -23,7 +23,7 @@ const AboutSection = ({id}) => {
         }`).then((data) => setAuthor(data[0]))
         .catch(console.error);
 
-    });
+    }, []);
 
     return (
         <div id="about">
