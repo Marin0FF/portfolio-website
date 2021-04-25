@@ -1,168 +1,119 @@
 // Navbar
-@media (min-width: 320px) {
-    .menuContainer {
-        width: 70%;
-        justify-content: space-evenly;
-        border-radius: 0px 0px 32px 32px;
-    }
-    .menuContainer > a {
-        display: none;
-    }
-    .logo {
-        margin: 0 !important;
-    }
-    .burgerMenu {
-        display: block;
-    }
-    .openedMenu {
-        display: none;
-    }
-}
-@media (min-width: 768px) {
-    .menuContainer {
-        width: 100vw;
-        border-radius: 0px;
-    }
-    .menuContainer > a {
-        display: block;
-    }
-    .burgerMenu {
-        display: none;
-    }
-    .openedMenu {
-        display: none;
-    }
-}
-
 nav:first-of-type {
-    z-index: 101;
+    z-index: 100;
 }
-.menuContainer {
+.menu-container {
     position: fixed;
     padding: 16px 0px 16px 0px;
     display: flex;
-    align-items: center;
-    font-weight: 300;
-    font-size: 24px;
-    background-color: white;
-    -webkit-box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.212);
-    -moz-box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.212);
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.212);
-}
-.menuContainer > a {
-    color: lighten($grey, 40%);
-}
-.menuContainer > a:hover {
-    color: $grey;
-}
-.menuContainer > a:active {
-    color: $grey;
-    font-weight: 500;
-}
-.burgerMenu {
-    border: none;
-    background-color: inherit;
-}
-.burgerMenu div {
-    width: 24px;
-    height: 2px;
-    background-color: rgba(0, 102, 255, 1);
-    margin: 6px;
-    border-radius: 1px;
-    transition: all 0.3s ease;
-}
-.openedMenu {
-    z-index: 100;
-    height: 70vh;
-    max-width: 100%;
-    width: 100%;
-    padding: 25% 0% 25% 0%;
-    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    font-size: 32px;
-    animation-duration: 0.3s;
-    animation-timing-function: ease-out;
-    animation-name: menuOpen;
+    font-weight: 300;
+    font-size: 24px !important;
+    background-color: white;
+    border-radius: 0px 0px 32px 32px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.212);
+    .logo {
+        height: 32px;
+        width: 51px;
+    }
+    .devider {
+        display: inline-block;
+        border-left: 1.5px solid lighten($grey, 50%);
+        height: 24px;
+    }
+    a.link-navbar {
+        color: lighten($grey, 35%);
+        &:hover {
+            color: $grey;
+        }
+        &.active {
+            text-shadow: 0 0 0.95px $grey, 0 0 0.95px $grey;
+            color: $grey;
+        }
+    }
 }
-.closedMenu {
-    z-index: 100;
-    height: 64px;
-    width: 30%;
-    animation-duration: 0.3s;
-    animation-timing-function: ease-in;
-    animation-name: menuClose;
-}
-.menuBackdrop {
-    z-index: 99;
-    position: fixed;
-    top: 0;
-    display: none;
-    opacity: 0;
-    background-color: rgb(0, 0, 0);
+.menu-container.mobile {
+    z-index: 50;
     height: 100vh;
-    width: 100vw;
-    transition: 0.2s;
+    border-radius: 0;
+    background-color: $primary;
+    width: 100vw !important;
+    padding: 25vh 0 25vh 0;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: $size-1 !important;
+    top: -100vh;
+    transition-duration: $duration;
+    transition-timing-function: ease-out;
+    a.link-navbar {
+        display: block;
+        opacity: 0;
+        transition: opacity $duration * 4;
+        color: lighten($white, 35%);
+        &:hover {
+            color: $white;
+        }
+    }
 }
-.openedMenu > a {
-    display: block;
-    color: rgba(0, 102, 255, 1);
+.is-open {
+    transform: translateY(100vh);
+    a.link-navbar {
+        opacity: 1 !important;
+    }
 }
-.closeMenuBtn .line1 {
-    transform: rotate(45deg) translate(5.5px, 6px);
-}
-.closeMenuBtn .line2 {
-    opacity: 0;
-    width: 0;
-}
-.closeMenuBtn .line3 {
-    transform: rotate(-45deg) translate(5.5px, -6px);
-}
-.logo {
-    height: 32px;
-    width: 51px;
-}
-.devider {
-    display: inline-block;
-    border-left: 1.5px solid lighten($grey, 50%);
-    height: 24px;
-}
-/* Main Navigation Animations */
-@keyframes menuOpen {
-    from {
+@include mobile {
+    .menu-container {
         width: 70%;
-        height: 32px;
     }
-    to {
-        width: 100%;
-        height: 70vh;
+    .menu-container > .link-navbar {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+    }
+    .is-open {
+        display: flex;
     }
 }
-
-@keyframes menuClose {
-    from {
-        width: 100%;
-        height: 70vh;
+@include tablet {
+    .menu-container {
+        width: 528px;
     }
-
-    to {
-        width: 70%;
-        height: 32px;
+    .menu-container > .link-navbar {
+        display: block;
+    }
+    .hamburger {
+        display: none !important;
+    }
+    .is-open {
+        display: none;
+    }
+}
+@include desktop {
+    .menu-container {
+        width: 560px;
+    }
+    .menu-container > .link-navbar {
+        display: block;
+    }
+    .hamburger {
+        display: none !important;
+    }
+    .is-open {
+        display: none;
     }
 }
 // Hero Content
-.hero-content {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
+.hero-body {
+    .primary-cta .icon {
+        transition: transform $duration $easing;
+    }
+    .primary-cta:hover .icon {
+        transform: rotate(90deg);
+    }
 }
-.primary-cta .icon {
-    transition: transform $duration $easing;
-}
-.primary-cta:hover .icon {
-    transform: rotate(90deg);
-}
+
 // Section title
 .section {
     hr {
@@ -173,15 +124,77 @@ nav:first-of-type {
         background-color: $primary;
     }
 }
+// Project section
+.card-image {
+    .image {
+        img {
+            object-fit: contain;
+        }
+    }
+}
+// Modal
+.modal {
+    display: flex;
+    align-items: center;
+    .modal-card {
+        z-index: 100;
+        max-height: 80vh;
+    }
+    .modal-background {
+        z-index: 50;
+    }
+    .modal-card-body {
+        img {
+            margin-bottom: 1em;
+        }
+        h1 {
+            font-size: $size-3;
+            font-weight: $weight-semibold;
+            margin-bottom: 0.5em !important;
+        }
+        h2 {
+            font-size: $size-4;
+            font-weight: $weight-semibold;
+            margin-bottom: 0.5em !important;
+        }
+        h3 {
+            font-size: $size-5;
+            font-weight: $weight-semibold;
+            margin-bottom: 0.5em !important;
+        }
+        h4 {
+            font-size: $size-6;
+            font-weight: $weight-semibold;
+            margin-bottom: 0.5em !important;
+        }
+        blockquote {
+            border-left: 3px solid $link;
+            padding-left: 1em;
+            padding-right: 0.5em;
+            background-color: lighten($color: $primary, $amount: 45%);
+            margin-bottom: 0.5em !important;
+        }
+        strong {
+            color: $grey !important;
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        li {
+            margin-bottom: 0.25em;
+        }
+    }
+}
 // Profile picture
 .profilePicture {
     @include center-x;
     height: 320px + $image-pading;
     width: 320px + $image-pading;
+    border-radius: 50%;
+    border: $image-pading solid $primary;
     img {
         padding: $image-pading;
-        border-radius: 50%;
-        border: $image-pading solid $primary;
+        border-radius: inherit;
     }
 }
 @include mobile {
@@ -190,24 +203,26 @@ nav:first-of-type {
         width: 75vw;
     }
 }
-// contact link
-.contact-link {
-    &:hover {
-        button {
-            transition: $duration/2 $easing;
-            background-color: darken($white, 10%);
-            border-color: darken($white, 10%);
-            span {
-                color: darken($primary, 5%) !important;
+// Contact section
+.container {
+    .buttons {
+        .contact-link {
+            &:hover {
+                button {
+                    transition: $duration/2 $easing;
+                    background-color: darken($white, 10%);
+                    border-color: darken($white, 10%);
+                    span {
+                        color: darken($primary, 5%) !important;
+                    }
+                }
             }
         }
     }
 }
-
-//footer
 .back-to-top:hover .icon {
     animation-duration: 0.4s;
     animation-iteration-count: 2;
     animation-timing-function: ease-in-out;
-    animation-name: scroll-top;
+    animation-name: scroll-top-hint;
 }

@@ -1,27 +1,71 @@
-import React from 'react';
+import React, { useState } from 'react'
+import { Link } from "react-scroll";
 
-const Navbar = () => (
+const NavbarLinks = ({menuState}) => (
     <>
-        <nav className="menuContainer">
-            <div className="logo mx-2"><img src="M Monogram_2.svg" alt="logo" /></div>
-            <div className="devider"></div>
-            <a href="#">Projects</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-
-            <button className="burgerMenu">
-                <div className="line1"></div>
-                <div className="line2"></div>
-                <div className="line3"></div>
-            </button>
-        </nav>
-        <nav className="menuContainer">
-            <a href="#">Projects</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-        </nav>
-        <div className="menuBackdrop"></div>
+        <Link
+            activeClass="active"
+            className="link-navbar"
+            to="projects"
+            smooth={true}
+            duration={500}
+            onClick={menuState}
+        >
+            Projects
+        </Link>
+        <Link
+            activeClass="active"
+            className="link-navbar"
+            to="about"
+            smooth={true}
+            duration={500}
+            onClick={menuState}
+        >
+            About
+        </Link>
+        <Link
+            activeClass="active"
+            className="link-navbar"
+            to="contact"
+            smooth={true}
+            duration={500}
+            onClick={menuState}
+        >
+            Contact
+        </Link>
     </>
 );
+
+const Navbar = () => {
+    const [isOpen, setOpen] = useState(false);
+
+    const toggleMenu = () => setOpen(isOpen === false ? true : false);
+
+    return (
+        <>
+            <nav className="menu-container">
+                <Link
+                    className="logo"
+                    to="home"
+                    smooth={true}
+                    duration={500}
+                >
+                    <img src="M Monogram_2.svg" alt="logo" />
+                </Link>
+                <div className="devider"></div>
+                <NavbarLinks />
+                <button class={`hamburger hamburger--spring ${isOpen === true ? 'is-active' : null}`} type="button" onClick={toggleMenu}
+                aria-label="Menu" aria-controls="navigation">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+            </nav>
+            <nav className={`menu-container mobile ${isOpen === true ? 'is-open' : null}`}>
+                <NavbarLinks menuState={toggleMenu} />
+            </nav>
+        </>
+    )
+};
 
 export default Navbar;

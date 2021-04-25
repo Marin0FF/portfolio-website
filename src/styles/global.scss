@@ -1,6 +1,7 @@
 // global styles
 body {
     background-color: $space-cadet;
+    overflow: hidden !important;
 }
 header {
     display: flex !important;
@@ -11,4 +12,13 @@ header {
 }
 .is-round {
     border-radius: 50% !important;
+}
+.contact {
+    min-height: 90vh;
+}
+.hamburger {
+    line-height: 1;
+    .hamburger-box {
+        display: block;
+    }
 }

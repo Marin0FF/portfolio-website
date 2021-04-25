@@ -25,5 +25,18 @@ $grey: $jet;
 $black: $earie-black;
 $text-strong: $white;
 $text: $white-ter;
+// modal variables
+$modal-content-width: 720px;
 // custom variables
 $image-pading: 5px;
+// hamburgers variables
+$hamburger-padding-x: 4.5px;
+$hamburger-padding-y: 4.5px;
+$hamburger-layer-width: 32px;
+$hamburger-layer-height: 2px;
+$hamburger-layer-spacing: 6px;
+$hamburger-layer-color: $primary;
+$hamburger-layer-border-radius: 1px;
+$hamburger-hover-opacity: 0.7;
+$hamburger-active-layer-color: $hamburger-layer-color;
+$hamburger-active-hover-opacity: $hamburger-hover-opacity;
