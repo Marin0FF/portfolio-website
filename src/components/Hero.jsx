@@ -1,5 +1,5 @@
 import React from 'react'
-import HALO from 'vanta/src/vanta.halo'
+import HALO from 'vanta/dist/vanta.halo.min'
 import HeroContent from './HeroContent'
 // Make sure window.THREE is defined, e.g. by including three.min.js in the document head using a <script> tag
 
@@ -45,8 +45,8 @@ class HeroSection extends React.Component {
   render() {
     return <div ref={this.vantaRef} id="home">
       <HeroContent
-      greeting="Hello, I'm Hristo!"
-      shortBio="I'm a front-end developer searching for the next step in my career."
+        greeting="Hello, I'm Hristo!"
+        shortBio="I'm a front-end developer searching for the next step in my career."
       />
     </div>
   }
