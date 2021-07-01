@@ -1,6 +1,6 @@
 import React from "react"
 
-const codepenPreview = ({value}) => {
+const Preview = ({value}) => {
     const { url } = value;
     if (!url) {
         return <div>Add a CodePen URL</div>
@@ -31,7 +31,7 @@ export default {
         select: {
             url: 'url',
         },
-        component: codepenPreview
+        component: Preview
     },
     fields: [
         {

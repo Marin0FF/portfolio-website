@@ -3,6 +3,8 @@ import { createPortal } from 'react-dom'
 import { useHistory, useParams } from 'react-router-dom'
 import sanityClient from '../client'
 import BlockContent from '@sanity/block-content-to-react'
+import YouTube from 'react-youtube'
+import getYouTubeID from 'get-youtube-id'
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -29,6 +31,15 @@ const Modal = () => {
                     allowFullScreen
                 />
               )
+          },
+          youtube: ({node}) => {
+            const { url } = node
+            const id = getYouTubeID(url)
+            return (
+                <div className="image is-16by9">
+                    <YouTube videoId={id} className="has-ratio" />
+                </div>
+            )
           }
         }
     }

@@ -7,6 +7,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 // We import object and document schemas
 import blockContent from './blockContent'
 import codepen from './codepen'
+import youtube from './youtube'
 import project from './project'
 import author from './author'
 
@@ -25,5 +26,6 @@ export default createSchema({
     // { type: 'typename' } in other document schemas
     blockContent,
     codepen,
+    youtube,
   ]),
 })
