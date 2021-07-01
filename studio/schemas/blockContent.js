@@ -64,5 +64,8 @@ export default {
     {
       type: 'codepen',
     },
+    {
+      type: 'youtube',
+    },
   ],
 }
